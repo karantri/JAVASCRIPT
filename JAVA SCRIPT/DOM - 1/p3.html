@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Calculator</title>
+</head>
+<body>
+
+    <center>
+    <label for="num1">Enter Number 1: </label>
+    <input  id="num1" placeholder="Enter first number">
+
+    <label for="num2">Enter Number 2: </label>
+    <input  id="num2" placeholder="Enter second number">
+
+    <h1 id="ans"></h1>
+
+    <br> <hr>
+
+   <button onclick="add()">Addition</button>
+   <button onclick="sub()">Substraction</button>
+   <button onclick="mul()">Multipication</button>
+   <button onclick="div()">Divison</button>
+
+</center>
+</body>
+</html>
+
+
+<script>
+ 
+ function add(){
+    var one = document.getElementById("num1").value
+    var sec = document.getElementById("num2").value
+
+    var add = + one + + sec;
+    document.getElementById("ans").innerHTML = add
+
+ }
+
+ function sub(){
+    var one = document.getElementById("num1").value
+    var sec = document.getElementById("num2").value
+
+    var sub = + one - + sec;
+    document.getElementById("ans").innerHTML = sub
+
+ }
+
+ function mul(){
+    var one = document.getElementById("num1").value
+    var sec = document.getElementById("num2").value
+
+    var mul = + one * + sec;
+    document.getElementById("ans").innerHTML = mul
+
+ }
+ 
+
+ function div(){
+    var one = document.getElementById("num1").value
+    var sec = document.getElementById("num2").value
+
+    var div = + one / + sec;
+    document.getElementById("ans").innerHTML = div
+
+ }
+</script>

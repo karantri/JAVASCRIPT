@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday countdown</title>
+</head>
+<style>
+    #bday{
+        height: 800px;
+        width: 850px;
+        border: 1px solid;
+        background-image: url("https://www.wishesquotes.com/wp-content/uploads/2015/06/smile-it-is-your-birthday.jpg");
+        background-position: center;
+        background-size: cover;
+        display: none;
+    }
+    #count{
+        font-size: 400px;
+    }
+</style>
+<body>
+    <center>
+        <div id="bday">
+        </div>
+        <h1 id="count">10</h1>
+    </center>
+</body>
+</html>
+
+<script>
+
+let countdown = document.getElementById("count")
+let count = 10
+let stop 
+
+stop = setInterval(()=>{
+count--
+countdown.innerHTML = count
+if(count == 0){
+    clearInterval(stop)
+    bday.style.display = "block"
+}
+},1000)
+</script>

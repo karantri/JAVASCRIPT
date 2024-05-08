@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Book Inventory Management</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+   let quotes = [
+        {title : "Dil Hai ki Maanta Nahi"   , Author : "Karan Trivedi" , price  : 300 , quantity : 50},
+        {title : "Mummy ke Taane  Aur Atif Aslam ke Gaaney , Seedha Dil ko choo jaate hain"   , Author : "Sanjay Khan" ,price  : 100 , quantity : 60},
+        {title: "Main Zindagi Ka Sath Nibhata Chala Gaya " , Author : "Karan Trivedi" , price  : 50 , quantity : 70},
+        {title : "Banda Jitni Marzi Izzat Kama Le , Bestfriend k Hathon Zaleel Hi Hota Hai... " , Author : "Ramesh Dudhat" , price  : 150 , quantity : 30},
+        {title : "Kaam Aisa Karo ki log kahein , Bhai tu Rehne De......"    , Author : "Sanjay Khan" , price  : 250 , quantity : 40},
+
+    ]
+
+    let arr = quotes.filter((el)=>{
+        return el.price >= 60
+    })
+    console.log("should be available",arr)
+</script>

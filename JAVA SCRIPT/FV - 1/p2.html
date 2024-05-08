@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        <form action="" id="form">
+        <label for="em">Enter Your Email</label>
+        <input type="text" id="em">
+        <br><br><br>
+        <label for="pw">Enter Your Password</label>
+        <input type="password" id="pw">
+        <br><br><br>
+        <input type="submit">
+        <br><br><br>
+        <span id="ans"></span>
+    </form>
+    </center>
+
+    
+</body>
+</html>
+
+<script>
+    document.getElementById("form").onsubmit = function(event){
+        event.preventDefault();
+        try {
+          
+            let email = document.getElementById("em").value;
+            let password = document.getElementById("pw").value;
+   
+            let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            let passwordRegex = /^.{8,}$/;
+
+            if (!emailRegex.test(email)) {
+                throw new Error("Invalid email address");
+            }
+
+            if (!passwordRegex.test(password)) {
+                throw new Error("Password must be at least 8 characters");
+            }
+          
+            document.getElementById("ans").innerText = "Form submitted successfully!";
+        } catch(error) {
+            document.getElementById("ans").innerText = error.message;
+        }
+    }
+</script>

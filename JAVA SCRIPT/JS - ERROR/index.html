@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error Handling </title>
+</head>
+<body>
+    <center>
+    <input type="text" id="in">
+    <button onclick="validateEmail()">click</button>
+    <span id="ans"></span>
+    </center>
+
+    <script>
+   
+        function validateEmail() {
+            const email = document.getElementById("in").value;
+            try {
+                if (!email.includes('@')) {
+                    throw new Error("Email should have @");
+                }
+
+                document.getElementById("ans").innerText = "Email is valid";
+            } catch (error) {
+                document.getElementById("ans").innerText = error.message;
+            }
+        }
+
+        function validateString(inputString) {
+            try {
+                if (inputString.trim() === '') {
+                    throw new Error("String must contain some characters");
+                }
+              
+                console.log("String is valid");
+            } catch (error) {
+                console.error(error.message);
+            }
+        }
+
+        validateString('test'); 
+
+        function checkVotingEligibility(age) {
+            try {
+                if (age < 18) {
+                    throw new Error("Not eligible to vote");
+                }
+        
+                console.log("Eligible to vote");
+            } catch (error) {
+                console.error(error.message);
+            }
+        }
+
+        checkVotingEligibility(20); 
+
+        function divideByNumber(a, b) {
+            try {
+                if (b < 0) {
+                    throw new Error("Number not divisible by 0");
+                }
+                const result = a / b;
+
+                console.log("Result:", result);
+            } catch (error) {
+                console.error(error.message);
+            }
+        }
+
+        divideByNumber(10, 2);
+    </script>
+</body>
+</html>

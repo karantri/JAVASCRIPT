@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slider</title>
+</head>
+
+<style>
+    img {
+        display: none;
+    }
+</style>
+<body>
+<img src="https://rukminim2.flixcart.com/fk-p-flap/1600/270/image/bef705133d335f5c.jpg?q=20" alt="">
+<img src="https://rukminim2.flixcart.com/fk-p-flap/1600/270/image/e4bf2a96a311355e.jpg?q=20" alt="">
+<img src="https://rukminim2.flixcart.com/fk-p-flap/1600/270/image/076cd2a048e45a3a.jpg?q=20" alt="">
+<img src="https://rukminim2.flixcart.com/fk-p-flap/1600/270/image/e4bf2a96a311355e.jpg?q=20" alt="">
+<img src="https://rukminim2.flixcart.com/fk-p-flap/1600/270/image/bef705133d335f5c.jpg?q=20" alt="">
+</body>
+</html>
+
+<script>
+    let images = document.querySelectorAll("img");
+    let index = 0;
+
+    function slide() {
+        for (let i = 0; i < images.length; i++) {
+            images[i].style.display = "none";
+        }
+
+        images[index].style.display = "block";
+        index++;
+
+        if (index >= images.length) {
+            index = 0;
+        }
+    }
+
+    function startSlideShow() {
+        setInterval(slide, 2000); 
+    }
+
+    startSlideShow();
+</script>

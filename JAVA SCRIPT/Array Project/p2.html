@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sum of Odd Elements</title>
+</head>
+<body>
+</body>
+</html>
+
+<script>
+    let numbers = [1, 2, 3, 4];
+    let result;
+
+    let sumOfOdd = numbers.reduce((sum, num) => {
+        if (num % 2 !== 0) {
+        result = sum + num;
+        }
+        
+        return sum;
+    });
+
+                                                
+    console.log(result); 
+</script>

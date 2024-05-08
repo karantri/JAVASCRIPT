@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Categorize Quotes</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+   let quotes = [
+        {Text : "Dil Hai ki Maanta Nahi"   , Author : "Karan Trivedi" , Category  : "Heart" },
+        {Text : "Mummy ke Taane  Aur Atif Aslam ke Gaaney , Seedha Dil ko choo jaate hain"   , Author : "Sanjay Khan" , Category : "Funny"},
+        {Text : "Main Zindagi Ka Sath Nibhata Chala Gaya " , Author : "Karan Trivedi" , Category : "life"},
+        {Text : "Banda Jitni Marzi Izzat Kama Le , Bestfriend k Hathon Zaleel Hi Hota Hai... " , Author : "Ramesh Dudhat" , Category : "life"},
+        {Text : "Kaam Aisa Karo ki log kahein , Bhai tu Rehne De......"    , Author : "Sanjay Khan" , Category : "Funny"},
+
+    ]
+
+    let arr =[];
+    for(let i = 0 ; i < quotes.length ; i++){
+        if(quotes[i].Category === "Heart"){
+            arr.push(quotes[i])
+        }
+    }
+    console.log(arr)
+</script>

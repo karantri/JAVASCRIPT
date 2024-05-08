@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css" integrity="sha512-OQDNdI5rpnZ0BRhhJc+btbbtnxaj+LdQFeh0V9/igiEPDiWE2fG+ZsXl0JEH+bjXKPJ3zcXqNyP4/F/NegVdZg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>counter</title>
+
+</head>
+<style>
+    .nav{
+        display: flex;
+        justify-content: space-evenly;
+    }
+</style>
+<body>
+    <div class="nav">
+        <div class="logo">
+        <i class="ri-community-line" style="font-size: 50px;"></i>
+        <p>Real Estate</p>
+        <h6 id="counter1" style="font-size: 15px; border: 1px solid ; ">1</h6>
+    </div>
+
+    
+    <div class="logo">
+        <i class="ri-book-marked-fill" style="font-size: 50px;"></i>
+        <p>Books</p>
+        <h6 id="counter2" style="font-size: 15px; border: 1px solid ; ">1</h6>
+    </div>
+
+    
+    <div class="logo">
+        <i class="ri-car-fill" style="font-size: 50px;"></i>
+        <p>Cars</p>
+        <h6 id="counter3" style="font-size: 15px; border: 1px solid ; ">1</h6>
+    </div>
+    </div>
+</body>
+</html>
+
+<script>
+    let counter = document.getElementById("counter1");
+    let counter1 = document.getElementById("counter2");
+    let counter2 = document.getElementById("counter3");
+    let count = 0;
+    let count1 = 0;
+    let count2 = 0;
+
+    let stop1 = setInterval(() => {
+        if (count < 3921) {
+            count++;
+            counter.innerHTML = count;
+        } else {
+            clearInterval(stop1);
+        }
+    }, 10);
+
+    let stop2 = setInterval(() => {
+        if (count1 < 398) {
+            count1++;
+            counter1.innerHTML = count1;
+        } else {
+            clearInterval(stop2);
+        }
+    }, 10);
+
+    let stop3 = setInterval(() => {
+        if (count2 < 299) {
+            count2++;
+            counter2.innerHTML = count2;
+        } else {
+            clearInterval(stop3);
+        }
+    }, 10);
+</script>

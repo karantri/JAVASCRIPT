@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Objects</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+    let student = [
+        {name : "Sanjay Khan"   , score : 95 },
+        {name : "Vivek Ameta"   , score : 99 },
+        {name : "Mitesh Dudhat" , score : 70 },
+        {name : "Kartik Chavda" , score : 85 },
+        {name : "Jenil Vadi"    , score : 95 },
+
+    ]
+
+    let arr = student.filter((el)=>{
+        return el.score >= 90
+    })
+    console.log("High scoring",arr)
+</script>

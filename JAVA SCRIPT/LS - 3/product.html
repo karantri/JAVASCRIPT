@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page</title>
+</head>
+<body>
+    <div id="cart"></div>
+    <div id="main"></div>
+
+    <script>
+        let data = [
+            {
+                "id": 1,
+                "title": "Smatic Ultra 2",
+                "price": 799.99,
+                "description": "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
+                "category": "men's clothing",
+                "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
+                "rating": {
+                    "rate": 3.9,
+                    "count": 120
+                }
+            },
+            {
+                "id": 2,
+                "title": "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
+                "price": 109.95,
+                "description": "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
+                "category": "men's clothing",
+                "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
+                "rating": {
+                    "rate": 3.9,
+                    "count": 120
+                }
+            },
+            {
+                "id": 3,
+                "title": "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
+                "price": 109.95,
+                "description": "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
+                "category": "men's clothing",
+                "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
+                "rating": {
+                    "rate": 3.9,
+                    "count": 120
+                }
+            }
+        ];
+
+        // Render products
+        function renderProducts() {
+            const main = document.getElementById('main');
+            main.innerHTML = data.map(product => `
+                <div>
+                    <h2>${product.title}</h2>
+                    <p>$${product.price}</p>
+                    <p>${product.description}</p>
+                    <img src="${product.image}" alt="${product.title}" style="width: 200px; height: auto;">
+                </div>
+            ).join('');
+
+            localStorage.setItem('products', JSON.stringify(data));
+        }
+
+        window.addEventListener('load', () => {
+            const storedData = localStorage.getItem('products');
+            if (storedData) {
+                data = JSON.parse(storedData);
+                renderProducts();
+            }
+        });
+
+        renderProducts();
+    </script>
+</body>
+</html>

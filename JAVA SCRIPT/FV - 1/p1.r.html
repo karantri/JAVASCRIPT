@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+</head>
+<body>
+    <center>
+       <form action="" id="form">
+        <label for="nm">Enter Your Name </label>
+        <input type="text" id="nm">
+        <br><br><br>
+        <label for="em">Enter Your Email</label>
+        <input type="text" id="em">
+        <br><br><br>
+        <label for="pm">Enter Your Phone Number</label>
+        <input type="text" id="pm">
+        <br><br><br>
+        <label for="pw">Enter Your Password</label>
+        <input type="password" id="pw">
+        <br><br><br>
+        <label for="cpw">Enter Your Current Password </label>
+        <input type="password" id="cpw">
+        <br><br><br>
+        <input type="submit">
+
+        <span id="ans"></span>
+       </form>
+        
+    </center>
+
+</body>
+</html>
+
+<script>
+    document.getElementById("form").onsubmit = function(event){
+        event.preventDefault();
+        try {
+            let name = document.getElementById("nm").value;
+            let email = document.getElementById("em").value;
+            let mobile = document.getElementById("pm").value;
+            let password = document.getElementById("pw").value;
+            let confirmPassword = document.getElementById("cpw").value;
+
+            let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            let phoneRegex = /^\d{10}$/;
+
+            let passwordRegex = /^.{8,}$/;
+
+            if (name === "" || email === "" || mobile === "" || password === "" || confirmPassword === "") {
+                throw new Error("All fields are required");
+            }
+
+            if (!emailRegex.test(email)) {
+                throw new Error("Invalid email address");
+            }
+
+            if (!phoneRegex.test(mobile)) {
+                throw new Error("Invalid phone number");
+            }
+
+            if (!passwordRegex.test(password)) {
+                throw new Error("Password must be at least 8 characters");
+            }
+
+            document.getElementById("ans").innerText = "Form submitted successfully!";
+        } catch(error) {
+            document.getElementById("ans").innerText = error.message;
+        }
+    }
+</script>

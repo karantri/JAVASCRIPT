@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal</title>
+</head>
+<style>
+    #modal {
+        height: 30px;
+        width: 300px;
+        background-color: cadetblue;
+        color: burlywood;
+        font-weight: bolder;
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1;
+    }
+    
+    button {
+        background-color: brown;
+        border: 1px solid transparent;
+        border-radius: 5%;
+        height: 30px;
+        width: 100px;
+        margin-top: 10px;
+        color: azure;
+    }
+</style>
+<body>
+    <center>
+        <div id="modal">50% Discount Of your Favourite Brands - <button onclick="closeModal()">X</button></div>
+        <button onclick="showModal()">Shop Now...</button>
+    </center>
+</body>
+</html>
+
+<script>
+    let modal = document.getElementById("modal");
+
+    function showModal() {
+        modal.style.display = "block";
+        setTimeout(closeModal, 3000); 
+    }
+
+    function closeModal() {
+        modal.style.display = "none";
+    }
+</script>

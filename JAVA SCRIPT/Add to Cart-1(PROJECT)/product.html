@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://yourwebsite.com/script.js">
+    <link rel="stylesheet" href="https://codepen.io/username/pen/aBcDef.css">
+    <link rel="stylesheet" href="signup.css">
+</head>
+<style>
+  #main{
+    display: flex;
+  }
+  #pic{
+    height: 50%;
+    width: 50%;
+  }
+  button{
+    color: aliceblue;
+    background-color: black;
+    height: 40px;
+    width: 180px;
+  }
+  h1{
+    text-align: center;
+  }
+  h2{
+    font-size: 20px;
+  }
+  #poster{
+    height: 500px;
+    width: 100%;
+    background-image: url("https://bellavitaorganic.com/cdn/shop/files/1920-720_f828d852-a3ef-4d7e-b7aa-462e805e836d.jpg?v=1710501458&width=1920");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .logo{
+    text-align: center;
+  }
+  .sec{
+    margin-top: 5%;
+    height: 500px;
+    width: 100%;
+    background-image: url("https://bellavitaorganic.com/cdn/shop/files/Offer-Banner-2.jpg?v=1695733175&width=1920");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+ }
+</style>
+<body>
+  <div class="logo"><img src="https://bellavitaorganic.com/cdn/shop/files/Bella_Vita_Logo_360_E_2x_d60de42b-fa50-45b3-b490-be70ac1fffa1.png?height=30&v=1689596709" alt="">
+
+  </div>
+  <div id="poster">
+  </div>
+  <select name="" id="sort">
+    <option value="low">Value : Low - High</option>
+    <option value="high">Value : High - Low </option>
+    <option value="az">A - Z</option>
+    <option value="za"> Z - A </option>
+
+  </select>
+  <h1>Bestsellers</h1>
+    <div id="main"></div>
+    <div id="cart"></div>
+<div class="sec"></div>
+<script>
+    let cartBtn = document.createElement("button");
+    cartBtn.innerHTML = "CART";
+    document.getElementById("cart").append(cartBtn);
+
+    let data = [
+        {
+            id: 1,
+            title: "oxury Perfume Gift Set For Men - 4 x 20mls",
+            price: 565.00,
+            image: "https://bellavitaorganic.com/cdn/shop/files/ManPerfumeGiftSet-01_2_eb660165-6da9-4e14-bdf0-fabd68113a00.jpg?v=1695204946&width=500",
+        },
+        {
+            id: 2,
+            title: "auxury OUD Experience Set",
+            price: 849.00,
+            image: "https://bellavitaorganic.com/cdn/shop/files/0_6326984c-e89a-43ba-b560-e35d40faba70.jpg?v=1703835295&width=500",
+        },
+        {
+            id: 3,
+            title: "CEO Man Luxury Perfume - 100ml",
+            price: 499.00,
+            image: "https://bellavitaorganic.com/cdn/shop/files/CEOMAN_3b131d25-7893-4ad5-a17a-4b3de9a3ebd3.jpg?v=1693290059&width=500",
+        },
+        {
+            id: 4,
+            title: "Luxury Perfume Gift Set For Women - 4 x 20mls",
+            price: 565.00,
+            image: "https://bellavitaorganic.com/cdn/shop/files/WomanPerfumeGiftSet_1.jpg?v=1695204304&width=500",
+        },
+       
+    ];
+
+    function display(data) {
+
+      document.getElementById("main").innerHTML=""
+        data.map((el,index) => {
+
+            let first = document.createElement("div")
+
+            let image = document.createElement("img")
+            image.setAttribute("src",el.image)
+            image.setAttribute("id","pic")
+
+            let title = document.createElement("h2");
+            title.innerHTML = el.title;
+            title.setAttribute("class","title")
+
+            let price = document.createElement("p");
+            price.innerHTML = el.price;
+            price.classList.add("pr");
+
+            let btnCart = document.createElement("button");
+            btnCart.innerHTML = "Add To Cart";
+            btnCart.addEventListener("click", function() {
+                addToCart(el,index);
+            });
+
+            
+
+            first.append(image ,title, price, btnCart);
+            document.getElementById("main").append(first);
+        })
+    }
+
+    function addToCart(data,index) {
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        let product = data[index];
+        
+        let existing = cart.findIndex(p => p.id === data.id)
+        if(existing != -1){
+          cart[existing].quantity +=1;
+
+        }
+        else{
+        
+          data.quantity = 1
+          cart.push(data);
+        }
+        localStorage.setItem("cart", JSON.stringify(cart)); 
+    }
+
+    display(data);
+
+    cartBtn.addEventListener("click", function() {
+        window.location.href = "cart.html"; 
+    });
+
+    let sort=document.getElementById("sort")
+
+    sort.addEventListener("change",()=>{
+      let select=sort.value;
+
+      let selectValue=[];
+
+      if(select==="low")
+      {
+           selectValue=data.slice().sort((a,b)=>a.price-b.price)
+      }
+     else if(select==="high")
+     {
+         selectValue=data.slice().sort((a,b)=>b.price-a.price)
+     }
+     else if(select==="az")
+     {
+         selectValue=data.slice().sort((a,b)=>a.title.localeCompare(b.title))
+     }
+     else if(select==="za")
+     {
+         selectValue=data.slice().sort((a,b)=>b.title.localeCompare(a.title))
+     }
+      display(selectValue)
+
+      
+    })
+  
+   
+</script>
+</body>
+</html>

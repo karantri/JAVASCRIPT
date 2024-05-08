@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete the functionality in the file selectors.html</title>
+</head>
+<body>
+    <center>
+        <h1 id="head">Hello</h1>
+        <h2 id="head2">I Am</h2>
+        <h3 id="head3">Karan Trivedi</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima quibusdam nemo voluptatum eos numquam est dolorem repudiandae fugiat debitis, nulla in voluptas minus repellendus, iste laboriosam, non illo officia recusandae.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima quibusdam nemo voluptatum eos numquam est dolorem repudiandae fugiat debitis, nulla in voluptas minus repellendus, iste laboriosam, non illo officia recusandae.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima quibusdam nemo voluptatum eos numquam est dolorem repudiandae fugiat debitis, nulla in voluptas minus repellendus, iste laboriosam, non illo officia recusandae.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima quibusdam nemo voluptatum eos numquam est dolorem repudiandae fugiat debitis, nulla in voluptas minus repellendus, iste laboriosam, non illo officia recusandae.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima quibusdam nemo voluptatum eos numquam est dolorem repudiandae fugiat debitis, nulla in voluptas minus repellendus, iste laboriosam, non illo officia recusandae.</p>
+
+        <hr>
+        <button onclick="chg()">Change colour</button>
+        <button onclick="bl()">change into blue</button>
+        <button onclick="re()">change into red</button>
+    </center>
+
+   
+</body>
+</html>
+<script>
+    function chg() {
+        let h1 = document.querySelector("#head");
+        h1.style.color = "red";
+
+        let h2 = document.querySelector("#head2");
+        h2.style.color = "green";
+
+        let h3 = document.querySelector("#head3");
+        h3.style.color = "blue";
+    
+
+    
+        let p = document.querySelectorAll("p");
+        for(let i = 0 ; i <=p.length ; i++){
+            p[i].style.color = "green"
+        }
+    }
+
+    function bl(){
+
+        let p = document.querySelectorAll("p");
+        for(let i = 0 ; i <=p.length ; i++){
+            p[i].style.color = "blue"
+        }
+    }
+
+   function re (){
+        let p = document.querySelectorAll("p");
+        for(let i = 0 ; i <=p.length ; i++){
+            p[i].style.color = "red"
+        }
+    }
+</script>

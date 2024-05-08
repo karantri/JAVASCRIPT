@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+</head>
+<body>
+    <center>
+        <h2>Enter a letter:</h2>
+        <input type="text" id="in">
+       
+          <h1 id="ans"></h1>
+      
+    </center>
+ 
+  <script>
+    
+      let a = document.getElementById("in").value
+
+      if(a ==""){
+        document.getElementById("ans").innerHTML = "TYPE CORRECT CHARACTOR"
+      }else{
+        
+      switch (a) {
+        case 'a':
+        case 'e':
+        case 'i':
+        case 'o':
+        case 'u':
+      
+          document.getElementById("ans").innerHTML = a + " is vowel.";
+          break;
+        default:
+          document.getElementById("ans").innerHTML= a + " is consonant.";
+          break;
+      }
+      }
+      
+    
+  </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie</title>
+</head>
+<body>
+    <input type="text" id="search">
+    <br><br><br>
+    <button onclick="show()">Search</button>
+    <div id="main"></div>
+</body>
+</html>
+
+<script>
+    function show(){
+    let key = "7167a77e3c93437989514fc34c64b325";
+    let Movie =  document.getElementById("search").value;
+    fetch(`https://api.artic.edu/api/v1/artworks/search?q=cats`)
+    
+    .then (function(response){
+        return response.json()
+    })
+    .then(function(json){
+        console.log(json)
+        movie(json)
+    })
+}
+
+    function movie(json){
+        document.getElementById("main").innerHTML = ""
+        let div = document.createElement("div")
+
+        let image = document.createElement("img")
+        image.setAttribute("src",json.Poster)
+
+        let title = document.createElement("h1")
+        title.innerHTML = json.Title;
+
+        div.append(image,title)
+        document.getElementById("main").append(div)
+    }
+</script>
