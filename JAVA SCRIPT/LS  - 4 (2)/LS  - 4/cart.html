@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cart Page</title>
+</head>
+<body>
+<div id="cart"></div>
+
+<script>
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+function displayCart() {
+    document.getElementById("cart").innerHTML = "";
+
+    cart.map((el) => {
+        let div = document.createElement("div");
+
+        let image = document.createElement("img");
+        image.setAttribute("src", el.image);
+        
+        let title = document.createElement("p");
+        title.innerHTML = el.title;
+
+        let price = document.createElement("p");
+        price.innerHTML = el.price;
+
+        div.append(image, title, price);
+        document.getElementById("cart").append(div);
+    });
+}
+
+displayCart();
+</script>
+</body>
+</html>
